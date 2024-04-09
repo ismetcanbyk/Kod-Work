@@ -4,11 +4,16 @@ import styles from './Card.style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
-const Card = ({ item }) => {
+const Card = ({ item, navigation }) => {
+
+
+    const handlePress = (id) => {
+        navigation.navigate('Detail', { id })
+    }
 
     return (
 
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={() => handlePress(item.id)}>
             <Text style={styles.cardTitle}>{item.name}</Text>
             <Text style={styles.cardBody}>{item.company.name}</Text>
             <View style={styles.locationContainer}>

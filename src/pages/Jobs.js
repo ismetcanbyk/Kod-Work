@@ -6,10 +6,10 @@ import useFetch from '../hooks/useFetch'
 import Loading from '../components/Loading'
 import PageChange from '../components/PageChange';
 
-const Jobs = () => {
+const Jobs = ({ navigation }) => {
     const [pageNumber, setPageNumber] = useState(1)
 
-    const { data, error, loading, fetchData } = useFetch(`${process.env.EXPO_PUBLIC_API_URL}page=${pageNumber}`)
+    const { data, error, loading, fetchData } = useFetch(`${process.env.EXPO_PUBLIC_API_URL}?page=${pageNumber}`)
 
     useEffect(() => {
         fetchData(`${process.env.EXPO_PUBLIC_API_URL}page=${pageNumber}`);
@@ -28,6 +28,7 @@ const Jobs = () => {
     const renderItem = ({ item }) => (
         <Card
             item={item}
+            navigation={navigation}
         />
     )
 
