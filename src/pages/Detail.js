@@ -1,13 +1,16 @@
-import { View, Text } from 'react-native'
+import { View, Text, useWindowDimensions } from 'react-native'
 import React from 'react'
 import useFetch from '../hooks/useFetch'
 import Loading from '../components/Loading'
 import DetailHeader from '../components/DetailHeader/DetailHeader'
+import RenderHTML from 'react-native-render-html'
+import { ScrollView } from 'react-native-gesture-handler'
+import DetailFooter from '../components/DetailFooter'
 
 const Detail = ({ route, navigation }) => {
     const { id } = route.params
-
-    const { data, error, loading, fetchData } = useFetch(`${process.env.EXPO_PUBLIC_API_URL}/${id}`)
+    const width = useWindowDimensions().width
+    const { data, error, loading } = useFetch(`${process.env.EXPO_PUBLIC_API_URL}/${id}`)
 
 
 
@@ -19,11 +22,19 @@ const Detail = ({ route, navigation }) => {
         return <Text>{error}</Text>
     }
 
+    const source = {
+        html: data.contents,
+    }
+
 
     return (
-        <View>
+        <ScrollView >
             <DetailHeader data={data} />
-        </View>
+            <View style={{ margin: 10 }}>
+                <RenderHTML source={source} contentWidth={width} />
+            </View>
+            <DetailFooter />
+        </ScrollView>
     )
 }
 
