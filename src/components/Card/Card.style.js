@@ -9,7 +9,7 @@ export default StyleSheet.create({
         borderRadius: 10,
         alignItems: 'flex-start',
         width: dimensions.width * 0.95,
-        height: dimensions.height * 0.14,
+
         padding: 10,
         margin: 10,
     },
