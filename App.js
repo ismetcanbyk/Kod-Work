@@ -6,7 +6,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FavPage from './src/pages/FavPage';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import DrawerNav from './src/navigations/DrawerNav';
-
+import Loading from './src/components/Loading';
+import { Provider } from 'react-redux';
+import { Store } from './src/context/Store'
 
 
 
@@ -14,9 +16,12 @@ import DrawerNav from './src/navigations/DrawerNav';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <DrawerNav />
-    </NavigationContainer>
+    <Provider store={Store}>
+
+      <NavigationContainer>
+        <DrawerNav />
+      </NavigationContainer>
+    </Provider>
   );
 }
 

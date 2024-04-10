@@ -38,7 +38,7 @@ const Detail = ({ route, navigation }) => {
             </ScrollView>
             <View style={styles.footer}>
 
-                <DetailFooter />
+                <DetailFooter data={data} navigation={navigation} />
             </View>
         </View>
     )

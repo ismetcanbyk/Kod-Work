@@ -46,5 +46,7 @@ export default StyleSheet.create({
         color: '#ef5350',
 
     },
-
+    customButton: {
+        alignSelf: 'center',
+    }
 });
