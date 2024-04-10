@@ -6,9 +6,12 @@ import styles from './DetailFooter.style'
 const DetailFooter = () => {
     return (
         <View style={styles.container}>
-            <Button />
-            <Button />
+            <View style={styles.buttonContainer}>
 
+                <Button title={"Submit"} iconName={"heart"} />
+                <Button title={"Favorite Job"} iconName={"login"} />
+
+            </View>
         </View>
     )
 }

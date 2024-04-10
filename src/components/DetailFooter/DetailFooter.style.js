@@ -5,4 +5,7 @@ export default StyleSheet.create({
         position: "relative",
         backgroundColor: "white",
     },
+    buttonContainer: {
+        flexDirection: "row",
+    }
 });

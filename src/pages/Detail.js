@@ -6,6 +6,7 @@ import DetailHeader from '../components/DetailHeader/DetailHeader'
 import RenderHTML from 'react-native-render-html'
 import { ScrollView } from 'react-native-gesture-handler'
 import DetailFooter from '../components/DetailFooter'
+import styles from './styles/Detail.style'
 
 const Detail = ({ route, navigation }) => {
     const { id } = route.params
@@ -28,14 +29,21 @@ const Detail = ({ route, navigation }) => {
 
 
     return (
-        <ScrollView >
-            <DetailHeader data={data} />
-            <View style={{ margin: 10 }}>
-                <RenderHTML source={source} contentWidth={width} />
+        <View style={styles.container}>
+            <ScrollView >
+                <DetailHeader data={data} />
+                <View style={styles.renderHtml}>
+                    <RenderHTML source={source} contentWidth={width} />
+                </View>
+            </ScrollView>
+            <View style={styles.footer}>
+
+                <DetailFooter />
             </View>
-            <DetailFooter />
-        </ScrollView>
+        </View>
     )
 }
+
+
 
 export default Detail
