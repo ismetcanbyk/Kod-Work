@@ -19,6 +19,7 @@ const StackNav = () => {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Detail" component={Detail} />
+      <Stack.Screen name="Jobs" component={Jobs} />
     </Stack.Navigator>
   );
 };

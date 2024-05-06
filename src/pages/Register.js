@@ -1,19 +1,43 @@
-import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import Button from "../components/Button/Button";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import { TextInput } from "react-native-gesture-handler";
-import { Foundation } from "@expo/vector-icons";
 import InputComp from "../components/InputComp/InputComp";
 import styles from "../pages/styles/Register.style";
 import LoginRegisterFooter from "../components/LoginRegisterFooterİmage";
 import LoginRegisterTopİmage from "../components/LoginRegisterTopİmage";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function Login({ navigation }) {
-  const handleRegister = () => {
-    navigation.navigate("Login");
+function Register({ navigation }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [mobile, setMobile] = useState('');
+
+
+  const handleRegister = async () => {
+    try {
+      const usersData = await AsyncStorage.getItem('users');
+      const users = usersData ? JSON.parse(usersData) : [];
+      const newUser = { username, password, email, mobile };
+      const existingUser = users.find(user => user.username === username);
+      if (existingUser) {
+        Alert.alert("Error", "Bu kullanıcı adı zaten kullanılıyor.");
+      } else {
+        users.push(newUser);
+        await AsyncStorage.setItem('users', JSON.stringify(users));
+        Alert.alert("Success", "Hesabınız başarıyla oluşturuldu, lütfen giriş yapın.");
+        navigation.navigate("Login");
+      }
+    } catch (error) {
+      console.error("Kayıt olunurken bir hata oluştu:", error);
+      Alert.alert("Error", "Bir hata oluştu, lütfen daha sonra tekrar deneyin.");
+    }
   };
+
+  const handleReturn = () => {
+    navigation.goBack();
+  };
+
   return (
     <View style={styles.container}>
       <LoginRegisterTopİmage />
@@ -22,16 +46,16 @@ function Login({ navigation }) {
         <Text style={styles.textHello}>Create Account</Text>
       </View>
 
-      <InputComp name={"user-alt"} placeHolder={"Username"} />
-      <InputComp name={"lock"} placeHolder={"Password"} />
-      <InputComp name={"mail-bulk"} placeHolder={"Mail"} />
-      <InputComp name={"mobile-alt"} placeHolder={"Mobile"} />
+      <InputComp name={"user-alt"} placeHolder={"Username"} onInputChange={setUsername} />
+      <InputComp name={"lock"} placeHolder={"Password"} secure={true} onInputChange={setPassword} />
+      <InputComp name={"mail-bulk"} placeHolder={"Mail"} onInputChange={setEmail} />
+      <InputComp name={"mobile-alt"} placeHolder={"Mobile"} onInputChange={setMobile} />
 
       <View style={styles.signInContainer}>
-        <Button title={"Create"} iconName={"login"} />
+        <Button title={"Create"} iconName={"login"} onPress={handleRegister} />
       </View>
 
-      <TouchableOpacity onPress={handleRegister}>
+      <TouchableOpacity onPress={handleReturn}>
         <View>
           <Text style={styles.footerText}>Return to the previous page..</Text>
         </View>
@@ -41,4 +65,4 @@ function Login({ navigation }) {
   );
 }
 
-export default Login;
+export default Register;
