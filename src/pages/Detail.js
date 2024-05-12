@@ -31,7 +31,7 @@ const Detail = ({ route, navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView >
-                <DetailHeader data={data} />
+                <DetailHeader data={data} navigation={navigation} />
                 <View style={styles.renderHtml}>
                     <RenderHTML source={source} contentWidth={width} />
                 </View>

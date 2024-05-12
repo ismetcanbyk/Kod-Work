@@ -1,14 +1,17 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import styles from './DetailHeader.style'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const DetailHeader = ({ data }) => {
+
     return (
         <View style={styles.container}  >
             <Text style={styles.title}>{data.name}</Text>
             <View style={styles.headerContainer}>
-                <Text style={styles.header}>Locations: </Text>
-                <Text style={styles.locations}>{data.locations[0].name}</Text>
+                <TouchableOpacity style={styles.locations}  >
+                    <Text style={styles.header}>Locations: {data.locations[0].name}</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.headerContainer}>
                 <Text style={styles.header}>Job Level: </Text>

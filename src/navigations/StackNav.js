@@ -6,6 +6,9 @@ import Detail from "../pages/Detail";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
+
+
+
 const Stack = createNativeStackNavigator();
 
 const StackNav = () => {
