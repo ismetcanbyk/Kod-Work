@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Button from "../components/Button/Button";
 import InputComp from "../components/InputComp/InputComp";
 import styles from "../pages/styles/Login.style";
-import LoginRegisterFooter from "../components/LoginRegisterFooterİmage";
-import LoginRegisterTopİmage from "../components/LoginRegisterTopİmage";
+import LoginRegisterFooter from "../components/LoginRegisterFooterImage";
+import LoginRegisterTopImage from "../components/LoginRegisterTopImage";
 import * as FileSystem from 'expo-file-system';
 import { Alert } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -40,7 +40,7 @@ function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <LoginRegisterTopİmage />
+      <LoginRegisterTopImage />
 
       <View style={styles.textContainer}>
         <Text style={styles.textHello}>Hello </Text>

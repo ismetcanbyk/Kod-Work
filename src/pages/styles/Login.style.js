@@ -27,5 +27,6 @@ export default StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     marginTop: 150,
+    textDecorationLine: "underline",
   },
 });

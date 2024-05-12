@@ -27,6 +27,7 @@ export default StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     marginTop: 50,
+    textDecorationLine: "underline",
   },
   footerImageContainer: {
     position: "absolute",

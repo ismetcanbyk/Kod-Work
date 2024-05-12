@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import Button from "../components/Button/Button";
 import InputComp from "../components/InputComp/InputComp";
 import styles from "../pages/styles/Register.style";
-import LoginRegisterFooter from "../components/LoginRegisterFooterİmage";
-import LoginRegisterTopİmage from "../components/LoginRegisterTopİmage";
+import LoginRegisterFooter from "../components/LoginRegisterFooterImage";
+import LoginRegisterTopImage from "../components/LoginRegisterTopImage";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Register({ navigation }) {
@@ -40,7 +40,7 @@ function Register({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <LoginRegisterTopİmage />
+      <LoginRegisterTopImage />
 
       <View style={styles.textContainer}>
         <Text style={styles.textHello}>Create Account</Text>

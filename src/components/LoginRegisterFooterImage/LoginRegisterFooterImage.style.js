@@ -11,7 +11,7 @@ export default StyleSheet.create({
     bottom: 0,
     left: 0,
   },
-  footerımage: {
+  footerImage: {
     height: 150,
     width: 100,
   },

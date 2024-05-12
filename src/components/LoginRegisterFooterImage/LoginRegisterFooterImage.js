@@ -1,12 +1,12 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import styles from "./LoginRegisterTopİmage.style";
+import styles from "./LoginRegisterFooterImage.style";
 const LoginRegisterFooter = () => {
   return (
-    <View style={styles.topImageContainer}>
+    <View style={styles.footerImageContainer}>
       <Image
-        source={require("../../../assets/Vector1.png")}
-        style={styles.topImage}
+        source={require("../../../assets/Vector2.png")}
+        style={styles.footerImage}
       />
     </View>
   );
