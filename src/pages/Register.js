@@ -16,6 +16,10 @@ function Register({ navigation }) {
 
   const handleRegister = async () => {
     try {
+      if (!email || !password || !username || !mobile) {
+        Alert.alert("Error", "Lütfen tüm alanları doldurun!");
+        return;
+      }
       const usersData = await AsyncStorage.getItem('users');
       const users = usersData ? JSON.parse(usersData) : [];
       const newUser = { username, password, email, mobile };
